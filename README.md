@@ -36,8 +36,9 @@ reads now-playing data straight from Windows itself.
 
 ## Install & run
 
-Run **`Tristons TidalRPC.exe`** — there's no installer and no window; it starts
-straight in your system tray (bottom-right notification area).
+**[Download the latest `Tristons TidalRPC.exe`](https://github.com/triston-dev/Tristons-TidalRPC/releases/latest)** and run it — there's no installer and
+nothing else to install (the .NET runtime is bundled). It starts straight in your
+system tray (bottom-right notification area).
 
 Prefer to run from source? From the repository root:
 
