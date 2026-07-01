@@ -1,0 +1,11 @@
+# Normalize line endings on commit; check out native on each OS.
+* text=auto
+
+# Keep Windows-oriented project files as CRLF to avoid VS churn.
+*.sln    text eol=crlf
+*.csproj text eol=crlf
+
+# Treat binary assets as binary (never normalize / diff as text).
+*.ico binary
+*.png binary
+*.jpg binary

@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Triston's TidalRPC  —  Author: triston-dev  (https://github.com/triston-dev)
+    Windows tray app that mirrors Tidal playback (read via SMTC) to Discord.
+  -->
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- 10.0.19041.0 exposes the Windows.Media.Control (SMTC) WinRT namespace
+         through the built-in CsWinRT projections, so no extra NuGet package is
+         needed to call Windows.Media.Control directly. Bump the build number if
+         you need newer WinRT APIs. -->
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+
+    <!-- Output "Tristons TidalRPC.exe"; namespace stays a valid identifier. -->
+    <AssemblyName>Tristons TidalRPC</AssemblyName>
+    <RootNamespace>TristonsTidalRPC</RootNamespace>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+
+    <!-- ===== Assembly metadata (shows in the compiled exe's file properties) ===== -->
+    <Product>Triston's TidalRPC</Product>
+    <AssemblyTitle>Triston's TidalRPC</AssemblyTitle>
+    <Company>triston-dev</Company>
+    <Authors>triston-dev</Authors>
+    <Copyright>Copyright © 2026 triston-dev — https://github.com/triston-dev</Copyright>
+    <Description>Discord Rich Presence for the Tidal desktop app, sourced from Windows System Media Transport Controls (SMTC).</Description>
+    <RepositoryUrl>https://github.com/triston-dev</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+
+    <!-- Publish niceties: a single self-contained exe with the icon embedded. -->
+    <RuntimeIdentifier Condition="'$(PublishSingleFile)' == 'true'">win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Maintained C# Discord IPC / Rich Presence library (Lachee). -->
+    <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Embed the icon so it is available even from a single-file publish. -->
+    <EmbeddedResource Include="Assets\app.ico" />
+  </ItemGroup>
+
+</Project>

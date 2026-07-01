@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <!-- 10.0.19041.0 (Win10 2004) is a safe minimum that still exposes the
+         Windows.Media.Control (SMTC) WinRT namespace via the built-in CsWinRT
+         projections, so no NuGet package is required for the probe. -->
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+</Project>
